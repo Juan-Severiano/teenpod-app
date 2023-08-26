@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "podcast-gleysin",
+    "name": "TeenPod",
     "slug": "podcast-gleysin",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.juansev.teenpod"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "126a3512-10fd-48ca-9ce3-5389509b1bfe"
+      }
     }
   }
 }
