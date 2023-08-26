@@ -4,13 +4,13 @@ export default props => {
   return (
     <TouchableOpacity style={{
       width: Dimensions.get('window').width / 2.4,
-      height: (Dimensions.get('window').width / 2.4) + 50,
+      height: (Dimensions.get('window').width / 2.4) + 10,
       justifyContent: 'flex-start',
       margin: 10,
       marginVertical: 30
     }}
       onPress={() => {
-        props.navigation.navigate('Podcast', { title: 'asd' })
+        props.navigation.navigate('Podcast', { ...props })
       }}
     >
       <Image style={{

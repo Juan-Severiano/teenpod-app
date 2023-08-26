@@ -17,12 +17,9 @@ export default props => {
       </Stack.Screen>
       <Stack.Screen name='Podcast'>
         {props => (
-          <PassoStack {...props} back>
-            <Podcast />
-          </PassoStack>
+            <Podcast {...props} />
         )}
       </Stack.Screen>
-      {/* <Stack.Screen name='ScreenC' component={ScreenC} /> */}
     </Stack.Navigator>
   )
 }

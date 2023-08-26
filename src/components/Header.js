@@ -11,7 +11,6 @@ export default props => {
       justifyContent: 'flex-end',
       padding: 20
     }}>
-      <Ionicons name='settings-outline' size={28} color='#fff' />
     </View>
   )
 }
