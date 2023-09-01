@@ -93,8 +93,8 @@ const PodcastPlayer = (props) => {
             style={styles.slider}
             value={position}
             maximumValue={duration}
-            minimumTrackTintColor="#1DB954"
-            thumbTintColor="#1DB954"
+            minimumTrackTintColor="#12C2E9"
+            thumbTintColor="#12C2E9"
             disabled={!sound}
           />
           <Text style={styles.time}>
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   playButton: {
-    backgroundColor: '#1DB954',
+    backgroundColor: '#FF32AF',
     paddingVertical: 13,
     paddingHorizontal: 16,
     width: 60,

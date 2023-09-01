@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { Image, View } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
 
@@ -8,9 +8,13 @@ export default props => {
     <View style={{
       width: '100%',
       flexDirection: 'row',
-      justifyContent: 'flex-end',
-      padding: 20
+      justifyContent: 'center',
+      padding: 10
     }}>
+      <Image source={require('../../assets/teenpod.png')} style={{
+        maxWidth: 100,
+        maxHeight: 100
+      }} />
     </View>
   )
 }
