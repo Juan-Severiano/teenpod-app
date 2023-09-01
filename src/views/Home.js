@@ -4,12 +4,13 @@ import { TouchableOpacity, StyleSheet, Text, View, Dimensions, Image, ScrollView
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Header from '../components/Header';
 import PodcastCard from '../components/PodcastCard';
-import podcasts from '../../podcasts';
+import axios from 'axios'
 
 
 export default function Home(props) {
   const [msg, setMsg] = useState('Bom dia')
   const [refreshing, setRefreshing] = useState(false)
+  const [podcasts, setPodcasts] = useState([])
 
   const getMessageHour = () => {
     const date = new Date().getHours()
@@ -24,14 +25,45 @@ export default function Home(props) {
     setTimeout(() => {
       setRefreshing(false)
     }, 1000);
+    console.log(props.route.params)
+    // conect()
+  }
+
+  conect = async () => {
+    setRefreshing(true)
+    console.clear();
+
+    const headers = {
+      Authorization: `Bearer ${props.navigation.state.params.access}`,
+    };
+
+    const config = {
+      headers: headers,
+    };
+
+    try {
+      const response = await axios.get(
+        'https://teenpod.onrender.com/api/podcast/',
+        config
+      );
+
+      console.log('STATUS home', response.status);
+
+      setPodcasts(response.data.results)
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+    setTimeout(() => {
+      setRefreshing(false)
+    }, 1000);
   }
 
   return (
     <SafeAreaView style={styles.container}>
-        <Header />
-        <View style={{ width: '90%', marginBottom: 10 }} onReady={getMessageHour}>
+      <Header />
+      <TouchableOpacity style={{ width: '90%', marginBottom: 10 }} onPress={() => { getMessageHour() }}>
           <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 30 }}>{msg}</Text>
-        </View>
+        </TouchableOpacity>
         <FlatList
           refreshControl={
             <RefreshControl
@@ -42,7 +74,7 @@ export default function Home(props) {
           contentContainerStyle={{ width: '100%', paddingHorizontal: 10 }}
           data={podcasts}
           numColumns={2}
-          keyExtractor={item => item.id}
+          keyExtractor={item => `${item.id}`}
           columnWrapperStyle={{ justifyContent: 'space-between' }}
           renderItem={({ item }) => {
             return <PodcastCard id={item.id} {...item} navigation={props.navigation} />

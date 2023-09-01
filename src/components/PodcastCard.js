@@ -11,6 +11,7 @@ export default props => {
     }}
       onPress={() => {
         props.navigation.navigate('Podcast', { ...props })
+        console.log(props.navigation)
       }}
     >
       <Image style={{

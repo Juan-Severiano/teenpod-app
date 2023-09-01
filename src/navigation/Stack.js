@@ -7,7 +7,7 @@ import Podcast from '../views/Podcast'
 const Stack = createNativeStackNavigator()
 
 export default props => {
-
+  console.log('STACK', + props)
   return (
     <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" options={{ title: 'informações iniciais' }}>

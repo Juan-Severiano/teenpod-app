@@ -1,7 +1,7 @@
 import registerRootComponent from 'expo/build/launch/registerRootComponent';
 
 // import App from './src/navigation/index';
-import PlayerScreen from './src/navigation/';
+import Main from './src/navigation/Switch';
 
 
-registerRootComponent(PlayerScreen);
+registerRootComponent(Main);

@@ -5,10 +5,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import Stack from './Stack'
 
 export default props => {
+  console.log('INDEX', props)
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
-        <Stack />
+        <Stack {...props.state} />  
       </NavigationContainer>
     </SafeAreaView>
   )
