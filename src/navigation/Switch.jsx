@@ -9,8 +9,8 @@ const mainRoutes = {
     name: 'Auth',
     screen: Auth,
   },
-  Home: {
-    name: 'Home',
+  Index: {
+    name: 'Index',
     screen: index,
   }
 }

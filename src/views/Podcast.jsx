@@ -16,7 +16,7 @@ const PodcastPlayer = (props) => {
   
   useEffect(() => {
     async function loadAudio() {
-      const { sound } = await Audio.Sound.createAsync(require('../../homaranha.mp3'));
+      const { sound } = await Audio.Sound.createAsync({ uri: props.route.params.audio});
       setSound(sound);
 
       const { durationMillis } = await sound.getStatusAsync();
@@ -80,7 +80,7 @@ const PodcastPlayer = (props) => {
         <View style={{ width: '100%' }}>
 
         </View>
-        <Image source={props.route.params.cover} style={styles.backgroundImage} />
+        <Image source={{ uri: props.route.params.cover}} style={styles.backgroundImage} />
         <Text style={styles.title}>{props.route.params.title}</Text>
 
 

@@ -25,7 +25,7 @@ export default class Login extends Component {
 
     const data = {
       username: 'admin',
-      password: '@dmin12345678',
+      password: 'asd',
     };
 
     try {
@@ -39,7 +39,7 @@ export default class Login extends Component {
       console.log(response.data);
 
       if (response.status === 200) {
-        this.props.navigation.navigate('Home', { access: response.data.access });
+        this.props.navigation.navigate('Index', { access: response.data.access });
       } else if (response.status === 400 || response.status === 401) {
         this.setState({ showError: true });
         const errors = [];
