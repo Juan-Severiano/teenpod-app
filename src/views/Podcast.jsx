@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet, ImageBackground, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, ImageBackground, Dimensions, ScrollView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons'
 import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider'
@@ -13,10 +13,10 @@ const PodcastPlayer = (props) => {
   const back = () => {
     props.navigation.navigate('Home')
   }
-  
+
   useEffect(() => {
     async function loadAudio() {
-      const { sound } = await Audio.Sound.createAsync({ uri: props.route.params.audio});
+      const { sound } = await Audio.Sound.createAsync({ uri: props.route.params.audio });
       setSound(sound);
 
       const { durationMillis } = await sound.getStatusAsync();
@@ -71,20 +71,14 @@ const PodcastPlayer = (props) => {
 
   return (
     <>
-    <TouchableOpacity style={styles.buttom} onPress={() => {
-      back()
-    }}>
-      <Ionicons name='arrow-back' size={30} color='#fff' />
-    </TouchableOpacity>
-      <View style={styles.container}>
-        <View style={{ width: '100%' }}>
-
-        </View>
-        <Image source={{ uri: props.route.params.cover}} style={styles.backgroundImage} />
+      <TouchableOpacity style={styles.buttom} onPress={() => {
+        back()
+      }}>
+        <Ionicons name='arrow-back' size={30} color='#fff' />
+      </TouchableOpacity>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Image source={{ uri: props.route.params.cover }} style={styles.backgroundImage} />
         <Text style={styles.title}>{props.route.params.title}</Text>
-
-
-
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
           <Text style={styles.time}>
             {getFormattedTime(position)}
@@ -109,22 +103,22 @@ const PodcastPlayer = (props) => {
           width: '100%',
           alignItems: 'center'
         }}>
-          <View style={{
+          <ScrollView style={{
             width: '90%'
           }}>
             <Text style={styles.description}>
               {props.route.params.description}
             </Text>
-          </View>
+          </ScrollView>
         </View>
-      </View>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    minHeight: Dimensions.get('window').height,
     backgroundColor: '#080808',
     alignItems: 'center',
     padding: 16,
@@ -142,12 +136,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width / 1.25,
     marginBottom: 16,
     borderRadius: 20,
-  },
-  gradient: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end'
+    marginTop: 100
   },
   title: {
     fontSize: 28,

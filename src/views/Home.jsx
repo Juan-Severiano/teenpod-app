@@ -43,7 +43,7 @@ export default function Home(props) {
 
     try {
       const response = await axios.get(
-        'https://teenpod.onrender.com/api/podcast/',
+        'https://teenpod.pythonanywhere.com/api/podcast/',
         config
       );
 
@@ -88,7 +88,7 @@ export default function Home(props) {
             }}
               onPress={() => {
                 props.navigation.navigate('Podcast', { ...item })
-                console.log(props.navigation)
+                console.log(item)
               }}
             >
               <PodcastCard id={item.id} item={item} />
