@@ -81,7 +81,7 @@ export default function Home(props) {
           return (
             <TouchableOpacity style={{
               width: Dimensions.get('window').width / 2.4,
-              height: (Dimensions.get('window').width / 2.4) + 10,
+              height: (Dimensions.get('window').width / 2.4) + 30,
               justifyContent: 'flex-start',
               margin: 10,
               marginVertical: 30
