@@ -11,6 +11,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
+    "plugins": [
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ]
+    ],
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -22,7 +30,11 @@
         "foregroundImage": "./assets/adaptive-icon-tp.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.juansev.teenpod"
+      "package": "com.juansev.teenpod",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon-tp.png"
