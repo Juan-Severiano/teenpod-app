@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { TouchableOpacity, StyleSheet, Text, View, Dimensions, Image, ScrollView, FlatList, RefreshControl } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, Dimensions, Image, ScrollView, FlatList, RefreshControl, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Header from '../components/Header';
 import PodcastCard from '../components/PodcastCard';
@@ -71,7 +71,7 @@ export default function Home(props) {
     <>
       { user.is_superuser ? 
         <TouchableOpacity style={styles.buttom} onPress={() => {
-          props.navigation.navigate('Add', { ...props.access })
+          Linking.openURL('https://teenpod.pythonanywhere.com/admin/app/podcast/add/')
         }}>
         <Ionicons name='add' size={30} color='#fff' />
       </TouchableOpacity> : null}
