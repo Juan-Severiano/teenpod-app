@@ -69,51 +69,8 @@ const PodcastPlayer = (props) => {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  return (
-    <>
-      <TouchableOpacity style={styles.buttom} onPress={() => {
-        back()
-      }}>
-        <Ionicons name='arrow-back' size={30} color='#fff' />
-      </TouchableOpacity>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Image source={{ uri: props.route.params.cover }} style={styles.backgroundImage} />
-        <Text style={styles.title}>{props.route.params.title}</Text>
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-          <Text style={styles.time}>
-            {getFormattedTime(position)}
-          </Text>
-          <Slider
-            style={styles.slider}
-            value={position}
-            maximumValue={duration}
-            minimumTrackTintColor="#12C2E9"
-            thumbTintColor="#12C2E9"
-            disabled={!sound}
-          />
-          <Text style={styles.time}>
-            {getFormattedTime(duration)}
-          </Text>
-        </View>
-        <TouchableOpacity onPress={togglePlayback} style={styles.playButton}>
-          <Ionicons name={isPlaying ? 'pause' : 'play'} size={30} color='#fff' />
-        </TouchableOpacity>
-        <View style={{
-          marginTop: 30,
-          width: '100%',
-          alignItems: 'center'
-        }}>
-          <ScrollView style={{
-            width: '90%'
-          }}>
-            <Text style={styles.description}>
-              {props.route.params.description}
-            </Text>
-          </ScrollView>
-        </View>
-      </ScrollView>
-    </>
-  );
+  
+  
 };
 
 const styles = StyleSheet.create({
