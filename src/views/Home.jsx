@@ -71,7 +71,7 @@ export default function Home(props) {
     <>
       { user.is_superuser ? 
         <TouchableOpacity style={styles.buttom} onPress={() => {
-          Linking.openURL('https://teenpod.pythonanywhere.com/admin/app/podcast/add/')
+          props.navigation.navigate('Add')
         }}>
         <Ionicons name='add' size={30} color='#fff' />
       </TouchableOpacity> : null}

@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from '../views/Home'
 import Podcast from '../views/Podcast'
+import Add from '../views/Add';
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +22,7 @@ export default props => {
             )}
           </Stack.Screen>
           <Stack.Screen name='Podcast' component={Podcast} />
+          <Stack.Screen name='Add' component={Add} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
