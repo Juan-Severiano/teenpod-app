@@ -11,7 +11,7 @@ const PodcastPlayer = (props) => {
   const [position, setPosition] = useState(null);
 
   const back = () => {
-    props.navigation.navigate('Home');
+    props.navigation.goBack();
   }
 
   useEffect(() => {
